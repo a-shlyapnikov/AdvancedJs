@@ -16,8 +16,8 @@ function addToMusicColletcion(musicCollection, albumTitle, artitName, year) {
     musicCollection.musicLib.push({
         title: albumTitle,
         artist: artitName,
-        year: year, 
-        toString(){
+        year: year,
+        toString() {
             return `${this.title} ${this.artist} ${this.year} year`
         }
     });
@@ -82,3 +82,34 @@ for (const album of musicCollection) {
 Клиент Алексей заказал: Пиццу "Пепперони" и Тирамису.
 Клиент Мария заказала: Суши "Калифорния" и Пиццу "Маргарита".
 Клиент Ирина заказала: Чизкейк. */
+
+
+const chiefSpecialization = new Map()
+    .set('Виктор', {
+        specialization: 'Пицца',
+        dishes: ['Маргарита', 'Пепперони']
+    })
+    .set('Ольга', {
+        specialization: 'Суши',
+        dishes: ['Филадельфия"', 'Калифорния']
+    })
+    .set('Дмитрий', {
+        specialization: 'Десерт',
+        dishes: ['Чизкейк"', 'Тирамису']
+    });
+
+chiefSpecialization.forEach((chiefInfo, chief) => {
+    chiefInfo.dishes.forEach((dish) => {
+        console.log(`${chiefInfo.specialization} "${dish}" - повар ${chief}`);
+    })
+});
+
+const orders = new Map()
+    .set({ name: 'Алексей' }, ['Пицца "Пепперони"', 'Десерт "Тирамису"'])
+    .set({ name: 'Мария' }, ['Суши "Калифрония"', 'Пицца "Маргарита"'])
+    .set({ name: 'Ирина' }, ['Десерт "Чизкейк"']);
+
+orders.forEach((order, client) => {
+    console.log(`Клиент ${client.name} заказал: ${order.join(', ')}`);
+})
+
