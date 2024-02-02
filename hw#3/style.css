@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.product-feedback {
+    text-align: center;
+    min-width: 200px;
+    border: 2px skyblue solid;
+    border-radius: 3%;
+}
+.feedback-container {
+    display: flex;
+    gap: 50px;
+}
